@@ -21,7 +21,11 @@ def apply_coupons(cart, coupons)
       if cart[coupon[:item]][:count] >= coupon[:num]
         addedCouponName = "`#{coupon[:item]}` W/COUPON"
         if cart[addedCouponName]
-          cart[addedCouponName][:count]
+          cart[addedCouponName][:count] += coupon[:num]
+        else
+          cart[addedCouponName] = {
+            count: 
+          }
 end
 
 def apply_clearance(cart)
