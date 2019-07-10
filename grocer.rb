@@ -50,11 +50,12 @@ end
 
 
 def checkout(cart, coupons)
-  total = 0.00
+  
   organizedCart = consolidate_cart(cart)
   couponedCart = apply_coupons(organizedCart, coupons)
   clearancedCart = apply_clearance(couponedCart)
   
+  total = 0.00
   clearancedCart.keys.each do |item|
     total += clearancedCart[item][:price]*clearancedCart[item][:count]
   end
